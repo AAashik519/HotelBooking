@@ -5,6 +5,8 @@ import Header from '../../components/Header/Header'
 import Nabvar from '../../components/Navbar/Nabvar'
 import Property from '../../components/Property/Property'
 import FeaturedProperties from '../../components/FeaturedProperties/FeaturedProperties'
+import MailList from '../../components/MailList/MailList'
+import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
   return (
@@ -17,6 +19,8 @@ const Home = () => {
         <Property />
         <h1 className='homeTitle'> Gomes guests love</h1>
           <FeaturedProperties />
+          <MailList />
+          <Footer />
 
       </div>
     </div>
