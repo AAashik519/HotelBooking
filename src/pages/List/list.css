@@ -15,6 +15,8 @@
     padding: 10px;
     border-radius: 10px;
     position: sticky;
+     top: 10px;
+     height: max-content;
 }
 .lsItem{
     display: flex;
@@ -41,6 +43,31 @@
     color: #555;
     margin-bottom: 10px;
 }
+
+.lsOptionItem{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 14px;
+}
+.lsOptionInput{
+    width: 60px;
+}
+.lsOptions{
+    padding: 10px;
+}
+
 .listResult{
     flex: 3;
+}
+
+.listSearch >button{
+    padding: 10px;
+    background: #0071c2;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    width: 100%;
 }
