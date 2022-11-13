@@ -19,6 +19,7 @@
 }
 .porpertyTitles> h1{
     font-size: 20px;
+    text-transform: capitalize;
 }
 .porpertyTitles >h2{
     font-size: 16px;
