@@ -1,65 +1,36 @@
-import React from 'react'
-import useFetch from '../../hooks/useFetch';
-import './featuredProperties.css'
+import React from "react";
+import useFetch from "../../hooks/useFetch";
+import "./featuredProperties.css";
 const FeaturedProperties = () => {
-  const { data, error, loading } = useFetch(
-    "/hotels/countByType");
+  const { data, error, loading } = useFetch("/hotels/featured=true&limit=4");
   return (
-    <div className='featuredProperties'> 
-        <div className="fpItem">
+    <div className="featuredProperties">
+      {loading ? (
+        "Loading Please wait"
+      ) : (
+        <>
+        {data.map((item)=>(
 
-            <img className='fpItemImg' src="https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1" alt="" />
+        <div className="fpItem" key={item._id}>
+          <img
+            className="fpItemImg"
+            src={item.photos[0]}
+            alt=""
+          />
 
-        <span className="fpName">Aparthotel Stare Miasto</span>
-        <span className="fpCity">Madrid</span>
-        <span className="fpPrice">Starting from $120</span>
-        <div className="fpRating">
-          <button>8.9</button>
-          <span>Excellent</span>
+          <span className="fpName">{item.name}</span>
+          <span className="fpCity">{item.city}</span>
+          <span className="fpPrice">Starting from ${item.cheapestPrice}</span>
+        { item.rating &&  <div className="fpRating">
+            <button>{item.rating}</button>
+            <span> </span>
+          </div>}
         </div>
-      
-        </div>
-        <div className="fpItem">
-
-            <img className='fpItemImg' src="https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1" alt="" />
-
-        <span className="fpName">Aparthotel Stare Miasto</span>
-        <span className="fpCity">Madrid</span>
-        <span className="fpPrice">Starting from $120</span>
-        <div className="fpRating">
-          <button>8.9</button>
-          <span>Excellent</span>
-        </div>
-      
-        </div>
-        <div className="fpItem">
-
-            <img className='fpItemImg' src="https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1" alt="" />
-
-        <span className="fpName">Aparthotel Stare Miasto</span>
-        <span className="fpCity">Madrid</span>
-        <span className="fpPrice">Starting from $120</span>
-        <div className="fpRating">
-          <button>8.9</button>
-          <span>Excellent</span>
-        </div>
-      
-        </div>
-        <div className="fpItem">
-
-            <img className='fpItemImg' src="https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1" alt="" />
-
-        <span className="fpName">Aparthotel Stare Miasto</span>
-        <span className="fpCity">Madrid</span>
-        <span className="fpPrice">Starting from $120</span>
-        <div className="fpRating">
-          <button>8.9</button>
-          <span>Excellent</span>
-        </div>
-      
-        </div>
+        ))}
+        </>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default FeaturedProperties
+export default FeaturedProperties;
