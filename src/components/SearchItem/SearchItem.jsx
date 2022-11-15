@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./searchItem.css";
 const SearchItem = ({item}) => {
   return (
@@ -23,14 +24,17 @@ const SearchItem = ({item}) => {
         </span>
       </div>
       <div className="siDetails"> 
-        <div className="siRatting">
+       {item.rating && <div className="siRatting">
             <span>Excellent</span>
-            <button>8.9</button>
-        </div>
+            <button>{item.rating}</button>
+        </div>}
         <div className="siDetailTexts">
-            <span className="siPrice">$123</span>
+            <span className="siPrice">${item.cheapestPrice}</span>
             <span className="siTaxOp"> Include taxes and fees</span>
+            <Link to={ `hotel/${item._id}`}>
             <button className="siCheckButton">See availablity</button>
+            </Link>
+            
         </div>
       </div>
     </div>

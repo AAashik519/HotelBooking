@@ -7,7 +7,8 @@ import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/SearchItem/SearchItem";
 import MailList from "../../components/MailList/MailList";
-import Footer from "../../components/Footer/Footer";
+ 
+import useFetch from "../../hooks/useFetch";
 
 const List = () => {
   const location = useLocation();
@@ -16,7 +17,8 @@ const List = () => {
   const [openDate, setOpenDate] = useState(false);
   const [options, setOptions] = useState(location.state.options);
 
-  const { data, error, loading } = useFetcher(`/hotels?city=${destination}`);
+  const { data, error, loading } =useFetch(`/hotels?city=${destination}`);
+  console.log("list ", data)
 
   return (
     <div>
